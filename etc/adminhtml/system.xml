@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+    <tab id="rg_tiktok" translate="label" sortOrder="4000" class="tiktok-tab">
+        <label>RG</label>
+    </tab>
+    <section id="rg_tiktok_section" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Tiktok</label>
+            <tab>rg_tiktok</tab>
+            <resource>RG_Tiktok::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable RG TIKTOK</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="access_token" translate="label" type="password" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                </field>
+                <field id="pixelcode" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pixel Code</label>
+                </field>
+                <field id="api" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Api Url</label>
+                </field>
+                <field id="test_event_code" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Event Code</label>
+                </field>
+                <field id="is_debug" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Debug Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

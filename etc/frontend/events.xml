@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+   <event name="checkout_cart_add_product_complete"> 
+      <observer name="after_add_to_cart" instance="RG\Tiktok\Observer\AddToCart" /> 
+   </event>
+   <event name="sales_quote_remove_item">
+        <observer name="rg_tiktok_tag" instance="RG\Tiktok\Observer\SalesQuoteRemoveItemObserver" />
+    </event>
+    <event name="wishlist_add_product">
+        <observer name="rg_tiktok_tagWish" instance="RG\Tiktok\Observer\WishListAddProductObserver" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="customerregister" instance="RG\Tiktok\Observer\CustomerRegisterSuccessObserver" />
+    </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="onepagecontrolleraction" instance="RG\Tiktok\Observer\CheckoutOnepageControllerSuccessAction" />
+    </event>
+    <event name="controller_action_predispatch_checkout_index_index">
+        <observer name="checkout_page" instance="RG\Tiktok\Observer\CheckoutPredispatch" />
+    </event>
+</config>
