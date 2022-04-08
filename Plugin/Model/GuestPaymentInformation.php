@@ -25,14 +25,14 @@ class GuestPaymentInformation
         RGLogger $logger,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
-        \Magento\Catalog\Api\ProductRepositoryInterface $productRepositoryInterface)
+        \Magento\Framework\ObjectManagerInterface $objectmanager)
     {
         $this->cartManagement = $cartManagement;
         $this->helper = $helper;
         $this->logger = $logger;
         $this->_checkoutSession = $checkoutSession;
         $this->orderRepository = $orderRepository;
-        $this->productRepository = $productRepositoryInterface;
+        $this->_objectManager = $objectmanager;
     }
 
     /**
@@ -65,9 +65,8 @@ class GuestPaymentInformation
         }
         $products =[];
         $totalPrice=0;
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         foreach($order->getAllItems() as $_item) {
-           $product_get = $objectManager->create('Magento\Catalog\Model\Product')->load($_item->getProductId());
+           $product_get = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($_item->getProductId());
             $product['price'] = $_item->getPrice();
             $product['quantity'] = (int)$_item->getQtyOrdered();
             $product['content_type'] = 'product';
