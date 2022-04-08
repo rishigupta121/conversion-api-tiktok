@@ -1,3 +1,5 @@
+[![score.svg](https://api.codiga.io/project/32644/score/svg)](https://api.codiga.io/project/32644/score/svg)
+[![grade.svg](https://api.codiga.io/project/32644/status/svg)](https://api.codiga.io/project/32644/status/svg)
 # Tiktok Conversion Pixel Analytics Plugin Magento2
 [![tiktok.png](https://i.postimg.cc/gj4ck3wt/tiktok.png)](https://postimg.cc/fStQ8tfY)
 ## Table of Contents
@@ -26,4 +28,6 @@ bin/magento s:d:c
 bin/magento c:f
 
 ```
+
+
 
