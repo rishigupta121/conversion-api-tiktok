@@ -14,15 +14,14 @@ class SavePaymentPlugin
 {
 
     public function __construct(
-        CartManagementInterface $cartManagement,
         \RG\Tiktok\Helper\Data $helper,
         RGLogger $logger,
-        \Magento\Catalog\Api\ProductRepositoryInterface $productRepositoryInterface,
+        \Magento\Catalog\Api\ProductRepositoryInterface $productRepoInterface,
         \Magento\Checkout\Model\Session $checkoutSession
         ){
         $this->logger = $logger;
         $this->helper = $helper;
-        $this->productRepository = $productRepositoryInterface;
+        $this->productRepository = $productRepoInterface;
         $this->_checkoutSession = $checkoutSession;
      }
 

@@ -13,11 +13,13 @@ class CheckoutOnepageControllerSuccessAction implements ObserverInterface
     public function __construct(
         RGLogger $logger,
         Data $helper,
+        \Magento\Framework\ObjectManagerInterface $objectmanager,
         \Magento\Sales\Api\Data\OrderInterface $orderinterface
      ) {
         $this->logger = $logger;
         $this->helper = $helper;
         $this->order = $orderinterface;
+        $this->_objectManager = $objectmanager;
         
      }
     public function execute(Observer $observer)
@@ -29,14 +31,12 @@ class CheckoutOnepageControllerSuccessAction implements ObserverInterface
      $orderId = $observer->getEvent()->getOrderIds();
      $order = $this->order->load($orderId);
      $customerId = $order->getCustomerId();
-     $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-     $customerData = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
+     $customerData = $this->_objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
         $products =[];
         $totalPrice=0;
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         foreach($order->getItemsCollection() as $_item) {
             $this->helper->storedebug($_item);
-            $product_get = $objectManager->create('Magento\Catalog\Model\Product')->load($_item->getProductId());
+            $product_get = $this->_objectManager->create('Magento\Catalog\Model\Product')->load($_item->getProductId());
             $product['price'] = $_item->getPrice();
             $product['quantity'] = (int)$_item->getQtyOrdered();
             $product['content_type'] = 'product';
